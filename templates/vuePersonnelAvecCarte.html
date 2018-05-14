@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}	l	
+        
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Numéro de Carte</th>
+			<th>Solde</th>
+			<th>Matricule</th>
+			<th>Nom</th>
+			<th>Prénom</th>
+			<th>Service</th>			
+		</tr>
+	</thead>
+	
+	<tbody>
+		{% for unPersonnel in personnels %}
+			<tr>
+				<td>{{ unPersonnel['matricule'] }}</td>
+				<td>{{ unPersonnel['solde'] }} €</td>
+				<td>{{ unPersonnel['matricule'] }}</td>
+				<td>{{ unPersonnel['nom'] }}</td>
+				<td>{{ unPersonnel['prenom'] }}</td>
+				<td>{{ unPersonnel['nomService'] }}</td>
+				{% if unPersonnel['activee'] == 1 %}
+					<td><button type="button" class="btn btn-primary btn-xs">Créditer</button></td>		
+					<td><form role="form" action="/gestionnaire/listerPersonneAvecCarte/bloquer" method="POST">
+						<input type="hidden" name="matricule" value={{ unPersonnel['matricule'] }} />
+						<button type="submit" class="btn btn-primary btn-xs">Bloquer</button>
+					</form></td>								
+					<td><form role="form" action="/gestionnaire/listerPersonneAvecCarte/initMdp" method="POST">
+						<input type="hidden" name="matricule" value={{ unPersonnel['matricule'] }} />
+						<button type="submit" class="btn btn-primary btn-xs">Init. MDP</button>
+					</form></td>
+				{% else %}
+					<td></td>					
+					<td><form role="form" action="/gestionnaire/listerPersonneAvecCarte/activer" method="POST">
+						<input type="hidden" name="matricule" value={{ unPersonnel['matricule'] }} />
+						<button type="submit" class="btn btn-primary btn-xs">Activer</button>
+					</form></td>				
+					<td></td>
+				{% endif %}						
+				<td><button type="button" class="btn btn-primary btn-xs">Historique</button></td>					
+			</tr>
+		{% endfor %}
+   
+	</tbody>
+</table>
+
+{% include "vuePied.html" %}
+

@@ -1,0 +1,31 @@
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}	
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Matricule</th>
+			<th>Nom</th>
+			<th>Prénom</th>
+			<th>Service</th>			
+		</tr>
+	</thead>
+	
+	<tbody>
+		{% for unPersonnel in personnels %}
+			<tr>
+				<td>{{ unPersonnel['matricule'] }}</td>
+				<td>{{ unPersonnel['nom'] }}</td>
+				<td>{{ unPersonnel['prenom'] }}</td>
+				<td>{{ unPersonnel['nomService'] }}</td>				
+				<td><button type="button" class="btn btn-primary btn-xs">Créer Compte</button></td>					
+			</tr>
+		{% endfor %}
+   
+	</tbody>
+</table>
+
+
+
+
+{% include "vuePied.html" %}

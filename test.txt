@@ -1,0 +1,59 @@
+Scénatio  alternatif A5.a: Connection avec u usagers inexistants ou avec un mauvais mot de passe
+		
+	Soit je suis sur la page d'authentification des usagers
+	Lorsque je saisie comme numéro de carte '10'
+	Et comme mot de passe 'azerty'
+	Et je clique sur 'se connecter'
+	Alors un message d'erreur apparraît et dit :"Echec de l'authentification. Numéro de carte et/ou mot de passe incorrects."
+	
+	OU
+	
+		
+	Soit je suis sur la page d'authentification des usagers
+	Lorsque je saisie comme numéro de carte '1'
+	Et comme mot de passe 'azertyzzzz'
+	Et je clique sur 'se connecter'
+	Alors un message d'erreur apparraît et dit :"Echec de l'authentification. Numéro de carte et/ou mot de passe incorrects."
+		
+Scénatio  alternatif A5.b: Connection avec un usagers bloqué	
+		
+	Soit je suis sur la page d'authentification des usagers
+	Lorsque je saisie comme numéro de carte '4'
+	Et comme mot de passe 'azerty'
+	Et je clique sur 'se connecter'
+	Alors un message d'erreur apparraît et dit :"Carte bloquée. Contacté le gestionniare."
+
+Scénatio  alternatif A9.a: Changer le mot de passe avec deux mot de passe différents	
+		
+	Soit je suis sur la page de changement de mot de passe du compte Ewen Prigent
+	Lorsque je saisie comme ancien mot de passe 'azerty'
+	Et comme nouveau mot de passe 'baobab'
+	Et dans le deuxième champ de nouveau mot de passe 'unresto'
+	Et je clique sur 'Modifier'
+	Alors un message d'erreur apparraît et dit :"Saisies incorrectes. Les deux saisies du nouveau mot de passe sont différentes. Recommencez...  "	
+	
+Scénatio  alternatif A9.a: Changer le mot de passe avec deux mot de passe différents	
+		
+	Soit je suis sur la page de changement de mot de passe du compte Ewen Prigent
+	Lorsque je saisie comme ancien mot de passe 'azerty'
+	Et comme nouveau mot de passe 'baobab'
+	Et dans le deuxième champ de nouveau mot de passe 'unresto'
+	Et je clique sur 'Modifier'
+	Alors un message d'erreur apparraît et dit :"Saisies incorrectes. Les deux saisies du nouveau mot de passe sont différentes. Recommencez...  "	
+	
+Scénatio  alternatif A9.a: Changer le mot de passe avec un mauvais ancien mot de passe	
+		
+	Soit je suis sur la page de changement de mot de passe du compte Ewen Prigent
+	Lorsque je saisie comme ancien mot de passe 'unresto'
+	Et comme nouveau mot de passe 'baobab'
+	Et dans le deuxième champ de nouveau mot de passe 'baobab'
+	Et je clique sur 'Modifier'
+	Alors un message d'erreur apparraît et dit :"Modification du mot de passe refusée."	
+	
+Scénatio  d'exception E1: Annuler le changement de mot de passe
+		
+	Soit je suis sur la page de changement de mot de passe du compte Ewen Prigent
+	Lorsque je clique sur le menu
+	Et que je clique sur 'Réservation'
+	Alors je reviens à la page de réservation
+
