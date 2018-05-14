@@ -10,6 +10,6 @@ do
 	git add $nomFichier
 	git status
 	git commit -a -m 'resanet'
+	git push -u origin master
 done
 
-git push -u origin master
